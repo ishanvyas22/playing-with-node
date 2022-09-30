@@ -9,7 +9,12 @@ http.createServer(function (req, res) {
 
     var url = req.url;
 
-    if (url === '/about') {
+    if (url === '/') {
+        renderHtml(staticPath + '/index.html', function (html) {
+            res.write(html);
+            res.end();
+        });
+    } else if (url === '/about') {
         renderHtml(staticPath + '/about.html', function (html) {
             res.write(html);
             res.end();
@@ -20,7 +25,7 @@ http.createServer(function (req, res) {
             res.end();
         });
     } else {
-        renderHtml(staticPath + '/index.html', function (html) {
+        renderHtml(staticPath + '/404.html', function (html) {
             res.write(html);
             res.end();
         });
