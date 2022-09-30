@@ -24,6 +24,16 @@ http.createServer(function (req, res) {
             res.write(html);
             res.end();
         });
+    } else if (url === '/ajax') {
+        renderHtml(staticPath + '/ajax.html', function (html) {
+            res.write(html);
+            res.end();
+        });
+    } else if (url === '/element') {
+        renderHtml(staticPath + '/element.html', function (html) {
+            res.write(html);
+            res.end();
+        });
     } else {
         renderHtml(staticPath + '/404.html', function (html) {
             res.write(html);
